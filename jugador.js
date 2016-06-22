@@ -86,38 +86,15 @@ module.exports = function Jugador(id,nombre,color){
 					game.paisSeleccionado2.jugador = game.paisSeleccionado1.jugador;
 					game.paisSeleccionado1.jugador.paises.push(game.paisSeleccionado2);
 					console.log('Paises j1 = '+game.paisSeleccionado1.jugador.paises.length);
-					// //Creamos una alerta para felicitarlo y ver si quiere pasar ejercitos
-					// btnAumentar = s.group(s.rect(580,300,20,20).attr({fill:'white'}),
-					// s.text(580, 320, '+').attr({'font-size':"30px"}))
-					// .click(function(){
-					// 	if(cantidadPase<3 && cantidadPase<(tegGame.paisSeleccionado1.ejercito-1)){
-					// 		cantidadPase++;
-					// 		alert[4].attr({'text':cantidadPase});
-					// 	}});
-					// 	var btnDisminuir = s.group(s.rect(480,300,20,20).attr({fill:'white'}),
-					// 	s.text(480, 320, '-').attr({'font-size':"30px"}))
-					// 	.click(function(){console.log(cantidadPase);if(cantidadPase>1){cantidadPase--;alert[4].attr({'text':cantidadPase})}});
-					// 	var btnAceptar = s.group(s.rect(460,400,180,50).attr({fill:'white'}),
-					// 	s.text(500, 435, 'Aceptar').attr({'font-size':"30px"}))
-					// 	.click($.proxy(tegGame.paisSeleccionado1.pasarEjercito,alert));
-					// 	alert = s.group(s.rect(0,0,1100,600).attr({'fill-opacity':'0.5'}),
-					// 	s.rect(200,100,700,400),
-					// 	s.text(250,150,'Felicitaciones!! Conquisto un país').attr({fill:'white','font-size':"40px"}),
-					// 	s.text(300,200,'Cuantas ejercitos desea pasar de '+tegGame.paisSeleccionado1.nombre+' a '+tegGame.paisSeleccionado2.nombre).attr({fill:'white','font-size':"20px"}),
-					// 	s.text(530,320,''+cantidadPase).attr({fill:'white','font-size':"30px"}),
-					// 	btnAumentar,
-					// 	btnDisminuir,
-					// 	btnAceptar);
-					// 	if(this.jugadorActual.objetivo.checkWin(this.jugadorActual)){
-					// 		console.log(this.jugadorActual.nombre + ' GANO!!');
-					// 		showWinAlert();
-					// 	}
-
-					}
-					return {'atacantesEliminados':ejercitoAtacanteEliminado,
-							'defensoresEliminados':ejercitoDefensorEliminado};
 				}
-			return null;
+					return {'atacantesEliminados':ejercitoAtacanteEliminado,
+					'defensoresEliminados':ejercitoDefensorEliminado,
+					'dadosAtacante':dadosAtacante,
+					'dadosDefensores':dadosDefensores};
+
+
+			}
+				return null;
 
 		}
 

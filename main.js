@@ -23,6 +23,7 @@ function saveWin(ganador,puntos,callback){
 			[ganador,puntos,myJuego.batallaId],
 			function(err, result) {
 				callback();
+				myJuego = new Juego();
 			});
 	});
 }
@@ -90,10 +91,17 @@ io.on('connection', function(socket) {
 	socket.on('atacar',function(data){
 		if(data.id == myJuego.jugadorActual.id &&
 				myJuego.jugadorActual.estado == 'Atacando'){
-			var result = myJuego.jugadorActual.atacar(myJuego)
+			var result = myJuego.jugadorActual.atacar(myJuego);
 			if(result!=null){
 				if(myJuego.jugadorActual.objetivo.checkWin(myJuego.jugadorActual)){
-					saveWin(myJuego.jugadorActual.nombre,PUNTOSBASE,function(){
+					var puntos = PUNTOSBASE;
+					if(myJuego.cantTurnos <10){
+						puntos+=10;
+					}
+					if(myJuego.jugadorActual.paises.length > 35){
+						puntos+=15;
+					}
+					saveWin(myJuego.jugadorActual.nombre,puntos,function(){
 						io.sockets.emit('win',{
 							'playerWin':myJuego.jugadorActual.id
 						});
@@ -212,13 +220,20 @@ io.on('connection', function(socket) {
 				jugadorWin = myJuego.jugadores[i];
 			}
 		}
-		saveWin(jugadorWin.nombre,PUNTOSBASE,function(){
-			if(jugadorWin){
+		if(jugadorWin!=null){
+			var puntos = PUNTOSBASE;
+			if(myJuego.cantTurnos <10){
+				puntos+=10;
+			}
+			if(jugadorWin.paises.length > 35){
+				puntos+=15;
+			}
+			saveWin(jugadorWin.nombre,puntos,function(){
 				io.sockets.emit('win',{
 					'playerWin':jugadorWin.id
 				});
-			}
-		});
+			});
+		}
 	    console.log('user disconnected');
 	  });
 

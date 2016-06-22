@@ -9,6 +9,7 @@ module.exports = function Juego(){
 	this.paisSeleccionado2 = '';
 	this.cantidad = 0;
 	this.conquistado = false;
+	this.cantTurnos = 1;
 
 	//Creamos paises
 	this.paises = {
@@ -264,6 +265,8 @@ module.exports = function Juego(){
 				this.clearPaisesSeleccionados();
 				break;
 			case 'Reagrupando':
+				//Sumamos 1 a cantidad de turnos
+				this.cantTurnos++;
 				this.jugadorActual.paises.forEach(function(p){
 					p.ejercitosPasados = {};
 				});
