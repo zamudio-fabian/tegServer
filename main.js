@@ -33,7 +33,6 @@ function generateBatalla(j1,j2,callback){
 		client.query("INSERT INTO batallas (player1,player2,start_date) VALUES ($1,$2,CURRENT_TIMESTAMP) RETURNING id",
 			[j1,j2],
 			function(err, result) {
-				console.log(result);
 				callback(result.rows[0]['id']);
 			});
 	});
@@ -61,7 +60,6 @@ io.on('connection', function(socket) {
 			io.sockets.emit('ready',{player1:paisesRepartidos[0],player2:paisesRepartidos[1]});
 			generateBatalla(myJuego.getJ(1).nombre,myJuego.getJ(2).nombre,function(id){
 				myJuego.batallaId = id;
-				console.log('id = '+myJuego.batallaId);
 			});
 			// socket.broadcast.emit('ready',{player1:myJuego.getJ(1),player2:myJuego.getJ(2)});
 		}else if(myJuego.jugadores.length>myJuego.MAXPLAYERS){
@@ -96,10 +94,10 @@ io.on('connection', function(socket) {
 				if(myJuego.jugadorActual.objetivo.checkWin(myJuego.jugadorActual)){
 					var puntos = PUNTOSBASE;
 					if(myJuego.cantTurnos <10){
-						puntos+=10;
+						puntos+=15;
 					}
 					if(myJuego.jugadorActual.paises.length > 35){
-						puntos+=15;
+						puntos+=20;
 					}
 					saveWin(myJuego.jugadorActual.nombre,puntos,function(){
 						io.sockets.emit('win',{
@@ -223,10 +221,10 @@ io.on('connection', function(socket) {
 		if(jugadorWin!=null){
 			var puntos = PUNTOSBASE;
 			if(myJuego.cantTurnos <10){
-				puntos+=10;
-			}
-			if(jugadorWin.paises.length > 35){
 				puntos+=15;
+			}
+			if(myJuego.jugadorActual.paises.length > 35){
+				puntos+=20;
 			}
 			saveWin(jugadorWin.nombre,puntos,function(){
 				io.sockets.emit('win',{

@@ -107,7 +107,7 @@ module.exports = function Juego(){
 
 	//Agregamos tarjetas de objetivos
 	this.objetivos = [
-		new ObjetivoSecreto('Ocupar Africa, 5 países de América del Norte y 4 países de Europa.',
+		new ObjetivoSecreto('Ocupar África, 5 países de América del Norte y 4 países de Europa.',
 		function(jugador){
 			var cantEuropa = 0;
 			var cantAmericaNorte = 0;
@@ -279,7 +279,6 @@ module.exports = function Juego(){
 					ejercitosNuevos = Math.floor(this.jugadorActual.paises.length/2);
 				}
 				this.jugadorActual.addEjercitosDisponibles(ejercitosNuevos);
-
 				this.jugadorActual.estado = 'Incorporando';
 				this.conquistado = false;
 				break;
