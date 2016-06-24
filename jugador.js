@@ -98,7 +98,6 @@ module.exports = function Jugador(id,nombre,color){
 
 		}
 
-
 		this.addEjercitosDisponibles = function(cantidad){
 			this.ejercitosDisponibles+=cantidad;
 		}
