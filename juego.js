@@ -159,7 +159,125 @@ module.exports = function Juego(){
 					return false;
 				}
 
-		})
+		}),
+		new ObjetivoSecreto('Ocupar América del Sur, 7 países de Europa y 2 países de Oceania.',
+		function(jugador){
+			var cantEuropa = 0;
+			var cantAmericaSur = 0;
+			var cantOceania = 0;
+			var paises = jugador.paises;
+			for (var i = 0; i < paises.length; i++) {
+				switch (paises[i].continente) {
+					case 'Europa':
+						cantEuropa++;
+						break;
+					case 'América del Sur':
+						cantAmericaNorte++;
+						break;
+					case 'Oceania':
+						cantOceania++;
+						break;
+				};
+			};
+				console.log('checkWin ='+(cantEuropa >= 7 && cantOceania >= 2 && cantAmericaSur >= 6)+' America='+cantAmericaSur+' Oceania='+cantOceania+' Europa='+cantEuropa);
+				if(cantEuropa >= 7 && cantOceania >= 2 && cantAmericaSur >= 6){
+					return true;
+				}else{
+					return false;
+				}
+
+		}),
+		new ObjetivoSecreto('Ocupar 2 países de Oceanía, 2 países de África, 2 países de América del Sur, 3 países de Europa, 4 de América del Norte y 3 de Asia',
+		function(jugador){
+			var cantEuropa = 0;
+			var cantAfrica = 0;
+			var cantAmericaNorte = 0;
+			var cantAsia = 0;
+			var cantAmericaSur = 0;
+			var cantOceania = 0;
+			var paises = jugador.paises;
+			for (var i = 0; i < paises.length; i++) {
+				switch (paises[i].continente) {
+					case 'Europa':
+						cantEuropa++;
+						break;
+					case 'América del Sur':
+						cantAmericaNorte++;
+						break;
+					case 'América del Norte':
+						cantAmericaNorte++;
+						break;
+					case 'Asia':
+						cantAsia++;
+						break;
+					case 'África':
+						cantAfrica++;
+						break;
+					case 'Oceania':
+						cantOceania++;
+						break;
+				};
+			};
+				console.log('checkWin ='+(cantEuropa >= 3 && cantOceania >= 2 && cantAmericaSur >= 2 && cantAfrica>=2 && cantAmericaNorte>=4 && cantAsia>=3));
+				if(cantEuropa >= 3 && cantOceania >= 2 && cantAmericaSur >= 2 && cantAfrica>=2 && cantAmericaNorte>=4 && cantAsia>=3){
+					return true;
+				}else{
+					return false;
+				}
+
+		}),
+		new ObjetivoSecreto('Ocupar Asia y 2 países de América del Sur.',
+		function(jugador){
+			var cantAsia = 0;
+			var cantAmericaSur = 0;
+			var paises = jugador.paises;
+			for (var i = 0; i < paises.length; i++) {
+				switch (paises[i].continente) {
+					case 'América del Sur':
+						cantAmericaNorte++;
+						break;
+					case 'Asia':
+						cantAsia++;
+						break;
+
+				};
+			};
+				console.log('checkWin ='+(cantEuropa >= 3 && cantOceania >= 2 && cantAmericaSur >= 2 && cantAfrica>=2 && cantAmericaNorte>=4 && cantAsia>=3));
+				if(cantAmericaSur >= 2 && cantAsia>=10){
+					return true;
+				}else{
+					return false;
+				}
+
+		}),
+		new ObjetivoSecreto(' Ocupar Europa, 4 países de Asia y 2 países de América del Sur.',
+		function(jugador){
+			var cantEuropa = 0;
+			var cantAsia = 0;
+			var cantAmericaSur = 0;
+			var paises = jugador.paises;
+			for (var i = 0; i < paises.length; i++) {
+				switch (paises[i].continente) {
+					case 'América del Sur':
+						cantAmericaNorte++;
+						break;
+					case 'Asia':
+						cantAsia++;
+						break;
+					case 'Europa':
+						cantEuropa++;
+						break;
+
+				};
+			};
+				console.log('checkWin ='+(cantAmericaSur >= 2 && cantAsia>=4 && cantEuropa>=8));
+				if(cantAmericaSur >= 2 && cantAsia>=4 && cantEuropa>=8){
+					return true;
+				}else{
+					return false;
+				}
+
+		}),
 	]
 
 	this.repartirObjetivos = function(){
