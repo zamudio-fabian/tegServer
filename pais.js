@@ -37,7 +37,6 @@ module.exports = function Pais(id,nombre,continente){
 				return true;
 			}
 			return false;
-
 		}
 
 		this.removeEjercito = function(cantidad){

@@ -126,7 +126,8 @@ module.exports = function Juego(){
 						break;
 				};
 			};
-				console.log('checkWin ='+(cantEuropa >= 4 && cantAfrica >= 6 && cantAmericaNorte >= 4)+' America='+cantAmericaNorte+' Africa='+cantAfrica+' Europa='+cantEuropa);
+				console.log('checkWin ='+(cantEuropa >= 4 && cantAfrica >= 6 &&
+					cantAmericaNorte >= 4));
 				if(cantEuropa >= 4 && cantAfrica >= 6 && cantAmericaNorte >= 4){
 					return true;
 				}else{
@@ -152,7 +153,8 @@ module.exports = function Juego(){
 						break;
 				};
 			};
-				console.log('checkWin ='+(cantAmericaNorte == 9 && cantOceania == 2 && cantAsia == 4)+' America='+cantAmericaNorte+' Oceania='+cantOceania+' Asia='+cantAsia);
+				console.log('checkWin ='+(cantAmericaNorte == 9 && cantOceania == 2 &&
+					 cantAsia == 4));
 				if(cantAmericaNorte >= 9 && cantOceania >= 2 && cantAsia >= 4){
 					return true;
 				}else{
@@ -179,7 +181,8 @@ module.exports = function Juego(){
 						break;
 				};
 			};
-				console.log('checkWin ='+(cantEuropa >= 7 && cantOceania >= 2 && cantAmericaSur >= 6)+' America='+cantAmericaSur+' Oceania='+cantOceania+' Europa='+cantEuropa);
+				console.log('checkWin ='+(cantEuropa >= 7 && cantOceania >= 2 &&
+					cantAmericaSur >= 6));
 				if(cantEuropa >= 7 && cantOceania >= 2 && cantAmericaSur >= 6){
 					return true;
 				}else{
@@ -218,7 +221,8 @@ module.exports = function Juego(){
 						break;
 				};
 			};
-				console.log('checkWin ='+(cantEuropa >= 3 && cantOceania >= 2 && cantAmericaSur >= 2 && cantAfrica>=2 && cantAmericaNorte>=4 && cantAsia>=3));
+				console.log('checkWin ='+(cantEuropa >= 3 && cantOceania >= 2 && cantAmericaSur >= 2 &&
+					cantAfrica>=2 && cantAmericaNorte>=4 && cantAsia>=3));
 				if(cantEuropa >= 3 && cantOceania >= 2 && cantAmericaSur >= 2 && cantAfrica>=2 && cantAmericaNorte>=4 && cantAsia>=3){
 					return true;
 				}else{
@@ -234,7 +238,7 @@ module.exports = function Juego(){
 			for (var i = 0; i < paises.length; i++) {
 				switch (paises[i].continente) {
 					case 'América del Sur':
-						cantAmericaNorte++;
+						cantAmericaSur++;
 						break;
 					case 'Asia':
 						cantAsia++;
@@ -242,7 +246,7 @@ module.exports = function Juego(){
 
 				};
 			};
-				console.log('checkWin ='+(cantEuropa >= 3 && cantOceania >= 2 && cantAmericaSur >= 2 && cantAfrica>=2 && cantAmericaNorte>=4 && cantAsia>=3));
+				console.log('checkWin ='+(cantAmericaSur >= 2 && cantAsia>=10));
 				if(cantAmericaSur >= 2 && cantAsia>=10){
 					return true;
 				}else{
@@ -259,7 +263,7 @@ module.exports = function Juego(){
 			for (var i = 0; i < paises.length; i++) {
 				switch (paises[i].continente) {
 					case 'América del Sur':
-						cantAmericaNorte++;
+						cantAmericaSur++;
 						break;
 					case 'Asia':
 						cantAsia++;
