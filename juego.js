@@ -174,7 +174,7 @@ module.exports = function Juego(){
 						cantEuropa++;
 						break;
 					case 'América del Sur':
-						cantAmericaNorte++;
+						cantAmericaSur++;
 						break;
 					case 'Oceania':
 						cantOceania++;
@@ -205,7 +205,7 @@ module.exports = function Juego(){
 						cantEuropa++;
 						break;
 					case 'América del Sur':
-						cantAmericaNorte++;
+						cantAmericaSur++;
 						break;
 					case 'América del Norte':
 						cantAmericaNorte++;
@@ -223,7 +223,8 @@ module.exports = function Juego(){
 			};
 				console.log('checkWin ='+(cantEuropa >= 3 && cantOceania >= 2 && cantAmericaSur >= 2 &&
 					cantAfrica>=2 && cantAmericaNorte>=4 && cantAsia>=3));
-				if(cantEuropa >= 3 && cantOceania >= 2 && cantAmericaSur >= 2 && cantAfrica>=2 && cantAmericaNorte>=4 && cantAsia>=3){
+				if(cantEuropa >= 3 && cantOceania >= 2 && cantAmericaSur >= 2 && cantAfrica>=2 &&
+					 cantAmericaNorte>=4 && cantAsia>=3){
 					return true;
 				}else{
 					return false;
